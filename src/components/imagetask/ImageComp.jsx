@@ -4,7 +4,7 @@ function ImageComp() {
   let [title, setTitle] = useState("React");
 
   let [url, setUrl] = useState(
-    "https://www.freecodecamp.org/news/content/images/2021/06/Ekran-Resmi-2019-11-18-18.08.13.png"
+    "https://bs-uploads.toptal.io/blackfish-uploads/components/blog_post_page/4088805/cover_image/regular_1708x683/cover-react-context-api-dc30b2b6fe1acf1acc567087076e26d3.png"
   );
 
   const changeToAngular = () => {
@@ -16,7 +16,7 @@ function ImageComp() {
 
   const changeToReact = () => {
     setUrl(
-      "https://www.freecodecamp.org/news/content/images/2021/06/Ekran-Resmi-2019-11-18-18.08.13.png"
+      "https://bs-uploads.toptal.io/blackfish-uploads/components/blog_post_page/4088805/cover_image/regular_1708x683/cover-react-context-api-dc30b2b6fe1acf1acc567087076e26d3.png"
     );
 
     setTitle("React");
