@@ -13,7 +13,9 @@ function Nav() {
         <Link to="/products">Products </Link>
         <Link to="/allproducts">AllProducts </Link>
         <Link to="/counter">Counter</Link>
-        <Link to="/imagecomp">ImageComp </Link>
+        <Link to="/usernames">UserNames</Link>
+        <p>-----</p>
+        {/* <Link to="/imagecomp">ImageComp </Link> */}
       </div>
     </div>
   );
