@@ -1,31 +1,14 @@
 import axios from "axios";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import "./AllProducts.css";
 import Card from "./card/Card";
-import { useDispatch, useSelector } from "react-redux";
-import { productsAction } from "../../redux/actions/productsAction";
-
 function AllProducts() {
   let [allproducts, setAllProducts] = useState([]);
-  let dispatch = useDispatch();
-  let productsData = useSelector((storedata) => {
-    return storedata.products;
-  });
-
-  useEffect(() => {
-    if (productsData.length === 0) {
-      getProducts();
-    }
-  }, []);
-
   const getProducts = () => {
-    console.log("executed");
     var promiseObject = axios.get("https://fakestoreapi.com/products");
-
     promiseObject
       .then((res) => {
-        var action = productsAction(res.data);
-        dispatch(action);
+        setAllProducts(res.data); // [{rating:{rate:4.3,count:233}},{},{},{}]
       })
       .catch((error) => {
         console.log("error");
@@ -55,12 +38,12 @@ function AllProducts() {
         reprehenderit inventore qui, id enim corrupti deleniti exercitationem
         nisi magni vitae vel natus quod sint.
       </p>
+      <button onClick={getProducts}>Get Products</button>
 
       <div className="allProductsData">
-        {productsData.map(function (product) {
+        {allproducts.map(function (product) {
           return (
             <Card
-              id={product.id}
               image={product.image}
               price={product.price}
               title={product.title}
