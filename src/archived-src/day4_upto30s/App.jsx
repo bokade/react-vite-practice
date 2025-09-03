@@ -14,8 +14,8 @@ import AllProducts from "./components/allproducts/AllProducts";
 import UserNames from "./components/user-names/UserNames";
 import ProductDetails from "./components/product-details/ProductDetails";
 import ReduxHome from "./redux/components/ReduxHome";
-import UserHome from "./json-server/UserHome";
-import GithubHome from "./Github/Home";
+import Users from "./json-server/Users";
+import NewUser from "./json-server/NewUser";
 
 function App() {
   return (
@@ -37,8 +37,15 @@ function App() {
         <Route path={"/allproducts"} element={<AllProducts />} />
         <Route path={"/usernames"} element={<UserNames />} />
         <Route path={"/redux"} element={<ReduxHome />} />
-        <Route path={"/jsonserver"} element={<UserHome />} />
-        <Route path={"/github"} element={<GithubHome />} />
+        <Route
+          path={"/jsonserver"}
+          element={
+            <div style={{ display: "flex", justifyContent: "space-evenly" }}>
+              <NewUser />
+              <Users />
+            </div>
+          }
+        />
         <Route path={"/productdetails/:id/:x"} element={<ProductDetails />} />
         <Route path={"*"} element={<PageNotFound />} />
       </Routes>

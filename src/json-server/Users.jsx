@@ -1,24 +1,27 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import axios from "axios";
-
-function Users() {
-  let [users, setUsers] = useState([]);
+function Users({ getUsers, users, setIsNewUser, setNewUser }) {
   useEffect(() => {
     getUsers();
   }, []);
 
-  const getUsers = () => {
+  const deleteUser = (id) => {
     axios
-      .get("http://localhost:3000/result")
+      .delete(`http://localhost:3000/result/${id}`)
       .then((res) => {
-        console.log(res.data);
-        setUsers(res.data);
+        getUsers();
       })
       .catch((error) => {
-        alert("something went wrong while accessing users");
+        alert("Failed to remove user");
         console.log(error);
       });
   };
+
+  const updateUser = (user) => {
+    setIsNewUser(false);
+    setNewUser(user);
+  };
+
   return (
     <div>
       <h2 style={{ textAlign: "center", marginTop: "30px" }}>
@@ -26,7 +29,7 @@ function Users() {
       </h2>
       {users.length > 0 && (
         <div style={{ margin: "30px auto", width: "500px" }}>
-          <table frame="box" rules="all" cellPadding="10" width={"100%"}>
+          <table className="table">
             <thead>
               <tr>
                 <th>Name</th>
@@ -34,17 +37,34 @@ function Users() {
                 <th colSpan={2}>Action</th>
               </tr>
             </thead>
-            <tbody align="center">
+            <tbody>
               {users.map((element) => {
                 return (
                   <tr>
                     <td>{element.name}</td>
                     <td>{element.city}</td>
                     <td>
-                      <button>Edit</button>
+                      <button
+                        className="btn btn-outline-success"
+                        onClick={() => {
+                          updateUser(element);
+                          {
+                            id, name, city;
+                          }
+                        }}
+                      >
+                        Edit
+                      </button>
                     </td>
                     <td>
-                      <button>Delete</button>
+                      <button
+                        className="btn btn-outline-danger"
+                        onClick={() => {
+                          deleteUser(element.id);
+                        }}
+                      >
+                        Delete
+                      </button>
                     </td>
                   </tr>
                 );

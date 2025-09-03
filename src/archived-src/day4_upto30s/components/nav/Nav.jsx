@@ -12,7 +12,7 @@ function Nav() {
 
         <Link to="/products">Categories </Link>
         <Link to="/allproducts">Products </Link>
-        <Link to="/github">Github </Link>
+        <Link to="/jsonserver">Users </Link>
         <Link to="/login">Login</Link>
 
         {/* <Link to="/imagecomp">ImageComp </Link> */}
