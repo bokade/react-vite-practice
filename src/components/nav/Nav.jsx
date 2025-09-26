@@ -2,11 +2,11 @@ import "./Nav.css";
 import { Link } from "react-router-dom";
 function Nav() {
   return (
-    <div class="nav">
+    <div className="nav">
       <div class="leftPanel flexContainer">
         <h2>Redux in React</h2>
       </div>
-      <div class="rightPanel flexContainer">
+      <div className="rightPanel flexContainer">
         <Link to="/">Home </Link>
         {/* <Link to="/counter2">Counter2 </Link> */}
 
