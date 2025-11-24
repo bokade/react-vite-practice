@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 function Nav() {
   return (
     <div className="nav">
-      <div class="leftPanel flexContainer">
+      <div className="leftPanel flexContainer">
         <h2>Redux in React</h2>
       </div>
       <div className="rightPanel flexContainer">
